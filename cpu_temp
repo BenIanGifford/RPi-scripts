@@ -1,0 +1,10 @@
+#! /bin/sh
+
+TEMPUNC=$(cat /sys/class/thermal/thermal_zone0/temp)
+
+TEMPC=$(awk "BEGIN {print $TEMPUNC /1000.0 * 1.8 + 32}")
+
+printf "The CPU temp is " 
+
+printf $TEMPC
+printf " degrees F\n"
